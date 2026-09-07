@@ -1,5 +1,17 @@
 # 工作进度
 
+## 发布本地工具库到 GitHub
+
+- 状态：已完成（100%）
+- 负责人：Agent
+- 开始日期：2026-09-07
+- 验收标准：将可公开发布的本地工具源码上传至 `bensgo/dart_ios_confuse`；不上传 IPA、dSYM、symbols、混淆 map、私有源码、敏感日志或本地构建输出；从远端重新克隆后内容和 Git 状态可验证。
+- 已完成：目标仓库与账号权限核验；生成独立干净发布快照；纳入根仓库可发布文件及 `dart_prefix_renamer` 源码；排除 `tbr-shell-cladding`、`ipa/`、`symbols/`、输出副本、私有报告及嵌套 Git 元数据。
+- 验证：敏感模式扫描无命中；无超过 20 MB 文件；Analyzer 无 error/warning（保留 39 条 info）；完整 86 项测试通过；远端全新克隆为干净 `main`，无 gitlink、IPA、dSYM、symbols 或 `tbr-shell-cladding`。
+- 远端首个交付：`d5c4052`（`发布：上传 Dart iOS 混淆工具 / release: publish Dart iOS obfuscation toolkit`）。
+- 阻塞：无。
+- 下一步：无。
+
 ## DifferenceKit Swift 编译修复
 
 - 状态：已完成（100%）
