@@ -1,0 +1,14 @@
+schema_version: 1
+native:
+  device: {enabled: true, provider: system}
+  network: {enabled: true, provider: nw_path_monitor}
+  secure_storage: {enabled: false}
+  crypto: {enabled: true, provider: crypto_kit}
+  diagnostics: {enabled: true, provider: system}
+  performance: {enabled: true, provider: os_signpost}
+bridges:
+  - {api: deviceInfo, consumer: lib/platform/platform_service.dart, effect: device_context}
+  - {api: networkState, consumer: lib/platform/platform_service.dart, effect: online_state}
+  - {api: crypto, consumer: lib/platform/platform_service.dart, effect: integrity_check}
+  - {api: diagnostics, consumer: lib/platform/platform_service.dart, effect: runtime_snapshot}
+  - {api: performance, consumer: lib/platform/platform_service.dart, effect: launch_metric}

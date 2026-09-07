@@ -1,0 +1,6 @@
+name: dart_prefix_renamer_pigeon_runner
+publish_to: none
+environment:
+  sdk: ^3.9.2
+dev_dependencies:
+  pigeon: 26.3.4

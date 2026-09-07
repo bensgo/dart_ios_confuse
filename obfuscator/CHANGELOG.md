@@ -1,0 +1,18 @@
+## 0.0.1
+
+- Initial release of the Dart Obfuscator CLI.
+
+## 0.0.1+1
+
+- Add `help` flag for CLI command.
+- Fix README.md file errors.
+- Fix various logic errors.
+
+## 0.0.1+2
+
+- Update README.md file.
+
+## 0.0.1+3
+
+- Update dependencies.
+- Fix README.md file errors.

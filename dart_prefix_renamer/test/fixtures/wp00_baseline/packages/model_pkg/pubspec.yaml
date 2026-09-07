@@ -1,0 +1,4 @@
+name: model_pkg
+environment:
+  sdk: ^3.9.2
+resolution: workspace

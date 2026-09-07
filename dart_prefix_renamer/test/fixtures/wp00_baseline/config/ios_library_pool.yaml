@@ -1,0 +1,262 @@
+schema_version: 1
+researched_at: "2026-08-26"
+libraries:
+  kingfisher:
+    repository: "onevcat/Kingfisher"
+    capability: "image_cache_key"
+    selected_version: "8.11.0"
+    package_manager: "cocoapods"
+    pod_name: "Kingfisher"
+    module_name: "Kingfisher"
+    probe_template: "kingfisher"
+    binary_tokens: ["Kingfisher"]
+    conflict_group: "image_cache_provider"
+    license: "MIT"
+    minimum_ios: "13.0"
+    last_release_at: "2026-07-20"
+    last_commit_at: "2026-08-25"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Offline ImageResource cache-key derivation without loading an image."
+    evidence_urls: ["https://github.com/onevcat/Kingfisher/releases/tag/8.11.0", "https://github.com/onevcat/Kingfisher/blob/8.11.0/Kingfisher.podspec"]
+  sdwebimage:
+    repository: "SDWebImage/SDWebImage"
+    capability: "image_cache_key"
+    selected_version: "5.21.7"
+    package_manager: "cocoapods"
+    pod_name: "SDWebImage"
+    module_name: "SDWebImage"
+    probe_template: "sdwebimage"
+    binary_tokens: ["SDWebImage"]
+    conflict_group: "image_cache_provider"
+    license: "MIT"
+    minimum_ios: "9.0"
+    last_release_at: "2026-02-26"
+    last_commit_at: "2026-04-15"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Offline cache-key derivation without download or cache mutation."
+    evidence_urls: ["https://github.com/SDWebImage/SDWebImage/releases/tag/5.21.7", "https://github.com/SDWebImage/SDWebImage/blob/5.21.7/SDWebImage.podspec"]
+  alamofire:
+    repository: "Alamofire/Alamofire"
+    capability: "request_encoding"
+    selected_version: "5.12.0"
+    package_manager: "cocoapods"
+    pod_name: "Alamofire"
+    module_name: "Alamofire"
+    probe_template: "alamofire"
+    binary_tokens: ["Alamofire"]
+    license: "MIT"
+    minimum_ios: "10.0"
+    last_release_at: "2026-05-05"
+    last_commit_at: "2026-07-27"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Local URLEncoding into URLRequest without creating a Session request."
+    evidence_urls: ["https://github.com/Alamofire/Alamofire/releases/tag/5.12.0", "https://github.com/Alamofire/Alamofire/blob/5.12.0/Alamofire.podspec"]
+  grdb:
+    repository: "groue/GRDB.swift"
+    capability: "in_memory_database"
+    selected_version: "7.11.1"
+    package_manager: "cocoapods"
+    pod_name: "GRDB.swift"
+    module_name: "GRDB"
+    probe_template: "grdb"
+    binary_tokens: ["GRDB"]
+    source_git: "https://github.com/groue/GRDB.swift.git"
+    source_tag: "v7.11.1"
+    license: "MIT"
+    minimum_ios: "13.0"
+    last_release_at: "2026-06-18"
+    last_commit_at: "2026-08-08"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Ephemeral in-memory SQLite query with no filesystem persistence."
+    evidence_urls: ["https://github.com/groue/GRDB.swift/releases/tag/v7.11.1", "https://github.com/groue/GRDB.swift/blob/v7.11.1/GRDB.swift.podspec"]
+  zipfoundation:
+    repository: "weichsel/ZIPFoundation"
+    capability: "in_memory_compression"
+    selected_version: "0.9.20"
+    package_manager: "cocoapods"
+    pod_name: "ZIPFoundation"
+    module_name: "ZIPFoundation"
+    probe_template: "zipfoundation"
+    binary_tokens: ["ZIPFoundation"]
+    license: "MIT"
+    minimum_ios: "12.0"
+    last_release_at: "2025-09-24"
+    last_commit_at: "2026-07-13"
+    privacy_manifest: true
+    status: "approved"
+    reason: "In-memory archive creation without filesystem access."
+    evidence_urls: ["https://github.com/weichsel/ZIPFoundation/releases/tag/0.9.20", "https://github.com/weichsel/ZIPFoundation/blob/0.9.20/ZIPFoundation.podspec"]
+  swiftprotobuf:
+    repository: "apple/swift-protobuf"
+    capability: "protobuf_serialization"
+    selected_version: "1.38.1"
+    package_manager: "cocoapods"
+    pod_name: "SwiftProtobuf"
+    module_name: "SwiftProtobuf"
+    probe_template: "swiftprotobuf"
+    binary_tokens: ["SwiftProtobuf"]
+    license: "Apache-2.0"
+    minimum_ios: "11.0"
+    last_release_at: "2026-06-23"
+    last_commit_at: "2026-08-21"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Serialization of a fixed in-memory Timestamp message."
+    evidence_urls: ["https://github.com/apple/swift-protobuf/releases/tag/1.38.1", "https://github.com/apple/swift-protobuf/blob/1.38.1/SwiftProtobuf.podspec"]
+  cryptoswift:
+    repository: "krzyzanowskim/CryptoSwift"
+    capability: "local_digest"
+    selected_version: "1.10.0"
+    package_manager: "cocoapods"
+    pod_name: "CryptoSwift"
+    module_name: "CryptoSwift"
+    probe_template: "cryptoswift"
+    binary_tokens: ["CryptoSwift"]
+    license: "Attribution"
+    minimum_ios: "11.0"
+    last_release_at: "2026-04-22"
+    last_commit_at: "2026-08-19"
+    privacy_manifest: true
+    status: "approved"
+    reason: "SHA-256 of a fixed non-sensitive string."
+    evidence_urls: ["https://github.com/krzyzanowskim/CryptoSwift/releases/tag/1.10.0", "https://github.com/krzyzanowskim/CryptoSwift/blob/1.10.0/CryptoSwift.podspec"]
+  devicekit:
+    repository: "devicekit/DeviceKit"
+    capability: "device_family"
+    selected_version: "5.8.0"
+    package_manager: "cocoapods"
+    pod_name: "DeviceKit"
+    module_name: "DeviceKit"
+    probe_template: "devicekit"
+    binary_tokens: ["DeviceKit"]
+    license: "MIT"
+    minimum_ios: "13.0"
+    last_release_at: "2026-03-03"
+    last_commit_at: "2026-03-03"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Read-only device family and simulator classification without identifiers."
+    evidence_urls: ["https://github.com/devicekit/DeviceKit/releases/tag/5.8.0", "https://github.com/devicekit/DeviceKit/blob/5.8.0/DeviceKit.podspec"]
+  promisekit:
+    repository: "mxcl/PromiseKit"
+    capability: "resolved_promise"
+    selected_version: "8.2.0"
+    package_manager: "cocoapods"
+    pod_name: "PromiseKit"
+    module_name: "PromiseKit"
+    probe_template: "promisekit"
+    binary_tokens: ["PromiseKit"]
+    license: "MIT"
+    minimum_ios: "10.0"
+    last_release_at: "2025-01-16"
+    last_commit_at: "2026-06-03"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Create and inspect an already fulfilled local Promise."
+    evidence_urls: ["https://github.com/mxcl/PromiseKit/releases/tag/8.2.0", "https://github.com/mxcl/PromiseKit/blob/8.2.0/PromiseKit.podspec"]
+  swifterswift:
+    repository: "SwifterSwift/SwifterSwift"
+    capability: "string_normalization"
+    selected_version: "8.0.0"
+    package_manager: "cocoapods"
+    pod_name: "SwifterSwift"
+    module_name: "SwifterSwift"
+    probe_template: "swifterswift"
+    binary_tokens: ["SwifterSwift"]
+    license: "MIT"
+    minimum_ios: "12.0"
+    last_release_at: "2025-08-26"
+    last_commit_at: "2026-07-21"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Pure in-memory camel-case string normalization."
+    evidence_urls: ["https://github.com/SwifterSwift/SwifterSwift/releases/tag/8.0.0", "https://github.com/SwifterSwift/SwifterSwift/blob/8.0.0/SwifterSwift.podspec"]
+  swiftyjson:
+    repository: "SwiftyJSON/SwiftyJSON"
+    capability: "in_memory_json_access"
+    selected_version: "5.0.2"
+    package_manager: "cocoapods"
+    pod_name: "SwiftyJSON"
+    module_name: "SwiftyJSON"
+    probe_template: "swiftyjson"
+    binary_tokens: ["SwiftyJSON"]
+    license: "MIT"
+    minimum_ios: "9.0"
+    last_release_at: "2024-03-27"
+    last_commit_at: "2026-08-25"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Read a fixed in-memory JSON value without networking or persistence."
+    evidence_urls: ["https://github.com/SwiftyJSON/SwiftyJSON/releases/tag/5.0.2", "https://github.com/SwiftyJSON/SwiftyJSON/blob/5.0.2/SwiftyJSON.podspec"]
+  objectmapper:
+    repository: "tristanhimmelman/ObjectMapper"
+    capability: "in_memory_mapping_context"
+    selected_version: "4.4.2"
+    package_manager: "cocoapods"
+    pod_name: "ObjectMapper"
+    module_name: "ObjectMapper"
+    probe_template: "objectmapper"
+    binary_tokens: ["ObjectMapper"]
+    license: "MIT"
+    minimum_ios: "13.0"
+    last_release_at: "2024-04-23"
+    last_commit_at: "2026-08-23"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Construct an in-memory Map with a fixed dictionary; no model state is retained."
+    evidence_urls: ["https://github.com/tristanhimmelman/ObjectMapper/releases/tag/4.4.2", "https://github.com/tristanhimmelman/ObjectMapper/blob/4.4.2/ObjectMapper.podspec"]
+  differencekit:
+    repository: "ra1028/DifferenceKit"
+    capability: "collection_difference"
+    selected_version: "1.3.0"
+    package_manager: "cocoapods"
+    pod_name: "DifferenceKit"
+    module_name: "DifferenceKit"
+    probe_template: "differencekit"
+    binary_tokens: ["DifferenceKit"]
+    license: "Apache-2.0"
+    minimum_ios: "9.0"
+    last_release_at: "2022-06-24"
+    last_commit_at: "2026-08-20"
+    privacy_manifest: false
+    status: "approved"
+    reason: "Compute a staged difference between two fixed in-memory integer arrays."
+    evidence_urls: ["https://github.com/ra1028/DifferenceKit/releases/tag/1.3.0", "https://github.com/ra1028/DifferenceKit/blob/1.3.0/DifferenceKit.podspec"]
+  swiftsoup:
+    repository: "scinfu/SwiftSoup"
+    capability: "in_memory_html_parse"
+    selected_version: "2.11.3"
+    package_manager: "cocoapods"
+    pod_name: "SwiftSoup"
+    module_name: "SwiftSoup"
+    probe_template: "swiftsoup"
+    binary_tokens: ["SwiftSoup"]
+    license: "MIT"
+    minimum_ios: "13.0"
+    last_release_at: "2025-12-09"
+    last_commit_at: "2026-08-25"
+    privacy_manifest: false
+    status: "approved"
+    reason: "Parse a fixed HTML literal and return only its text length."
+    evidence_urls: ["https://github.com/scinfu/SwiftSoup/releases/tag/2.11.3", "https://github.com/scinfu/SwiftSoup/blob/2.11.3/SwiftSoup.podspec"]
+  swinject:
+    repository: "Swinject/Swinject"
+    capability: "in_memory_dependency_resolution"
+    selected_version: "2.9.1"
+    package_manager: "cocoapods"
+    pod_name: "Swinject"
+    module_name: "Swinject"
+    probe_template: "swinject"
+    binary_tokens: ["Swinject"]
+    license: "MIT"
+    minimum_ios: "12.0"
+    last_release_at: "2025-09-01"
+    last_commit_at: "2026-08-24"
+    privacy_manifest: true
+    status: "approved"
+    reason: "Resolve a fixed integer from an isolated in-memory dependency container."
+    evidence_urls: ["https://github.com/Swinject/Swinject/releases/tag/2.9.1", "https://github.com/Swinject/Swinject/blob/2.9.1/Swinject.podspec"]

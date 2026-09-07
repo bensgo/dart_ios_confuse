@@ -1,0 +1,62 @@
+schema_version: 1
+native:
+  device:
+    enabled: true
+    provider: system
+
+  network:
+    enabled: true
+    provider: nw_path_monitor
+
+  secure_storage:
+    enabled: true
+    provider: keychain
+
+  crypto:
+    enabled: true
+    provider: crypto_kit
+
+  diagnostics:
+    enabled: true
+    provider: system
+
+  performance:
+    enabled: true
+    provider: os_signpost
+
+  image:
+    enabled: false
+
+  compression:
+    enabled: false
+
+  database:
+    enabled: false
+
+  logging:
+    enabled: false
+
+bridges:
+  - api: deviceInfo
+    consumer: lib/platform/platform_service.dart
+    effect: device_identity
+
+  - api: networkState
+    consumer: lib/platform/platform_service.dart
+    effect: offline_state
+
+  - api: secureStorage
+    consumer: lib/platform/platform_service.dart
+    effect: token_persistence
+
+  - api: crypto
+    consumer: lib/platform/platform_service.dart
+    effect: integrity_check
+
+  - api: diagnostics
+    consumer: lib/platform/platform_service.dart
+    effect: runtime_snapshot
+
+  - api: performance
+    consumer: lib/platform/platform_service.dart
+    effect: launch_metrics

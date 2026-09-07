@@ -1,0 +1,8 @@
+schema_version: 2
+selection:
+  enabled: true
+  mode: deterministic_random
+  count: 7
+  execution: startup_background_once
+  candidates: [kingfisher, sdwebimage, alamofire, grdb, zipfoundation, swiftprotobuf, cryptoswift, devicekit, promisekit, swifterswift, swiftyjson, objectmapper, differencekit, swiftsoup, swinject]
+dependencies: {}

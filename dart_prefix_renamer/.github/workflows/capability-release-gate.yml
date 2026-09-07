@@ -1,0 +1,31 @@
+name: capability-release-gate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  dart-quality-gate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub global activate fvm
+      - run: dart pub get
+      - run: dart format --output=none --set-exit-if-changed lib bin test
+      - run: dart analyze
+      - run: dart test
+
+  ios-release-gate:
+    if: ${{ vars.ENABLE_IOS_RELEASE_GATE == 'true' }}
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+      - run: dart pub global activate fvm
+      - run: dart pub get
+      - name: Run project-specific release fixture
+        env:
+          RELEASE_FIXTURE_ROOT: ${{ vars.RELEASE_FIXTURE_ROOT }}
+          RELEASE_TARGETS: ${{ vars.RELEASE_TARGETS }}
+        run: ./tool/ci_capability_release_gate.sh

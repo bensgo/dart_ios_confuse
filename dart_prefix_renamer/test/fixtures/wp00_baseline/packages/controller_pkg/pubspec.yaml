@@ -1,0 +1,7 @@
+name: controller_pkg
+environment:
+  sdk: ^3.9.2
+resolution: workspace
+dependencies:
+  service_pkg: any
+  model_pkg: any

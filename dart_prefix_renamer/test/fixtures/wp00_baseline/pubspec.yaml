@@ -1,0 +1,9 @@
+name: wp00_baseline
+environment:
+  sdk: ^3.9.2
+workspace:
+  - packages/repository_pkg
+  - packages/service_pkg
+  - packages/controller_pkg
+  - packages/model_pkg
+  - packages/widget_pkg

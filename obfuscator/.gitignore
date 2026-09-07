@@ -1,0 +1,4 @@
+# Ignore generated output directories in this project.
+/*_output/
+/output/
+/test_output/

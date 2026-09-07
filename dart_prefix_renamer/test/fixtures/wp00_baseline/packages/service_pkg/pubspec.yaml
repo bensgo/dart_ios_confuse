@@ -1,0 +1,6 @@
+name: service_pkg
+environment:
+  sdk: ^3.9.2
+resolution: workspace
+dependencies:
+  model_pkg: any

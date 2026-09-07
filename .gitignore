@@ -1,0 +1,10 @@
+/huanxin_product_deisoekdi_output
+.DS_Store
+.idea
+.dart_tool/
+**/.dart_tool/
+
+# 本地构建/验收输出：包含 Pods、IPA、dSYM、报告和私有源码副本，不纳入仓库
+/huanxin_third_party_output/
+/huanxin_third_party_output_*/
+/huanxin_all_output/

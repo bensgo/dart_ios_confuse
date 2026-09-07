@@ -1,0 +1,218 @@
+schema_version: 1
+rules:
+  repository:
+    min: 1
+    max: 3
+    allowed:
+      - cache_key
+      - cache_validation
+      - response_normalizer
+      - request_context
+
+  service:
+    min: 1
+    max: 3
+    allowed:
+      - request_metadata
+      - input_validation
+      - health_check
+      - retry_context
+
+  controller:
+    min: 1
+    max: 2
+    allowed:
+      - analytics_context
+      - state_validation
+      - lifecycle_diagnostics
+
+  model:
+    min: 0
+    max: 2
+    allowed:
+      - validate
+      - normalize
+      - debug_summary
+
+  widget:
+    min: 1
+    max: 2
+    allowed:
+      - accessibility
+      - presentation_normalization
+      - layout_metadata
+
+integrations:
+  # Repository 正例
+  - class: UserRepository
+    library: packages/repository_pkg/lib/src/repository.dart
+    capability: cache_key
+    call_site:
+      method: loadUser
+      anchor: before_cache_read
+    effect: cache_lookup_key
+
+  - class: UserRepository
+    library: packages/repository_pkg/lib/src/repository.dart
+    capability: cache_validation
+    call_site:
+      method: loadUser
+      anchor: after_cache_read
+    effect: cache_validity_check
+
+  - class: ProductRepository
+    library: packages/repository_pkg/lib/src/repository.dart
+    capability: response_normalizer
+    call_site:
+      method: loadProducts
+      anchor: after_fetch
+    effect: normalized_response
+
+  # Service 正例
+  - class: ApiService
+    library: packages/service_pkg/lib/src/service.dart
+    capability: request_metadata
+    call_site:
+      method: request
+      anchor: before_api_call
+    effect: request_headers
+
+  - class: ApiService
+    library: packages/service_pkg/lib/src/service.dart
+    capability: input_validation
+    call_site:
+      method: sanitizedRequest
+      anchor: before_request
+    effect: input_sanitization
+
+  - class: ApiService
+    library: packages/service_pkg/lib/src/service.dart
+    capability: health_check
+    call_site:
+      method: healthCheck
+      anchor: startup
+    effect: service_availability
+
+  - class: ApiService
+    library: packages/service_pkg/lib/src/service.dart
+    capability: retry_context
+    call_site:
+      method: withRetry
+      anchor: on_error
+    effect: retry_with_backoff
+
+  # Controller 正例
+  - class: ConversationController
+    library: packages/controller_pkg/lib/src/controller.dart
+    capability: analytics_context
+    call_site:
+      method: onPageOpen
+      anchor: track_event
+    effect: analytics_payload
+
+  - class: ConversationController
+    library: packages/controller_pkg/lib/src/controller.dart
+    capability: state_validation
+    call_site:
+      method: setState
+      anchor: before_state_change
+    effect: valid_state_transition
+
+  - class: ConversationController
+    library: packages/controller_pkg/lib/src/controller.dart
+    capability: lifecycle_diagnostics
+    call_site:
+      method: onDispose
+      anchor: cleanup
+    effect: diagnostics_capture
+
+  # Model 正例
+  - class: User
+    library: packages/model_pkg/lib/src/models.dart
+    capability: validate
+    call_site:
+      method: validate
+      anchor: from_json
+    effect: validation_result
+
+  - class: User
+    library: packages/model_pkg/lib/src/models.dart
+    capability: normalize
+    call_site:
+      method: normalize
+      anchor: after_parse
+    effect: normalized_model
+
+  # Widget 正例
+  - class: UserProfileWidget
+    library: packages/widget_pkg/lib/src/widget.dart
+    capability: accessibility
+    call_site:
+      method: render
+      anchor: build_ui
+    effect: accessibility_labels
+
+  - class: UserProfileWidget
+    library: packages/widget_pkg/lib/src/widget.dart
+    capability: presentation_normalization
+    call_site:
+      method: formatDisplayName
+      anchor: format
+    effect: normalized_text
+
+  - class: UserProfileWidget
+    library: packages/widget_pkg/lib/src/widget.dart
+    capability: layout_metadata
+    call_site:
+      method: layout
+      anchor: calculate
+    effect: layout_metrics
+
+  # 反例：死代码类 - 不应生成 capability
+  - class: DeadCodeRepository
+    library: packages/repository_pkg/lib/src/repository.dart
+    capability: cache_key
+    call_site:
+      method: unusedCacheKey
+      anchor: never_called
+    effect: none
+    expected: rejected
+
+  - class: DeadCodeService
+    library: packages/service_pkg/lib/src/service.dart
+    capability: request_metadata
+    call_site:
+      method: unusedMetadata
+      anchor: never_called
+    effect: none
+    expected: rejected
+
+  # 反例：仅 import 类 - 不应生成 capability
+  - class: ImportOnlyRepository
+    library: packages/repository_pkg/lib/src/repository.dart
+    capability: cache_key
+    call_site:
+      method: doNothing
+      anchor: no_usage
+    effect: none
+    expected: rejected
+
+  # 反例：错误 anchor - 不应生成 capability
+  - class: WrongAnchorRepository
+    library: packages/repository_pkg/lib/src/repository.dart
+    capability: cache_validation
+    call_site:
+      method: loadUser
+      anchor: nonexistent_anchor
+    effect: none
+    expected: rejected
+
+  # 反例：动态反射 - 不应生成 capability
+  - class: DynamicReflectionRepository
+    library: packages/repository_pkg/lib/src/repository.dart
+    capability: cache_key
+    call_site:
+      method: callMethod
+      anchor: dynamic
+    effect: none
+    expected: rejected
